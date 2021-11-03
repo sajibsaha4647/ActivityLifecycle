@@ -2,29 +2,43 @@ package com.example.activityliffecycle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
-    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) { //when start activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
-        button = findViewById(R.id.first);
+    @Override
+    protected void onStart() { //when loading a screen this is second
+        super.onStart();
+    }
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,SecondActivity.class);
-                startActivity(intent);
-            }
-        });
+    @Override
+    protected void onResume() { //after render data then call it
+        super.onResume();
+    }
 
+    @Override
+    protected void onPause() { //when close the app on puse call
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() { //after puse then call onstop
+        super.onStop();
+    }
+
+    @Override
+    protected void onRestart() { //again call then app then it call
+        super.onRestart();
+    }
+
+    @Override
+    protected void onDestroy() { //when exit then app its call destroy
+        super.onDestroy();
     }
 }
